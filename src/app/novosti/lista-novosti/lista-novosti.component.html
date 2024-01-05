@@ -1,0 +1,15 @@
+<br/>
+<div class="ui relaxed divided list">
+    <div class="item" *ngFor="let vest of vesti">
+      <i class="large bullhorn middle aligned icon"></i>
+      <div class="content">
+        <a [href]="vest.url" class="header">{{vest.title}}</a>
+        <div class="description">{{vest.publishedAt | date:"MMM dd, yyyy 'u' H:mm"}}</div>
+      </div>
+    </div>
+  </div>
+
+  <app-paginator
+[numberOfPages]="brojStranica"
+(pageChanged)="promenaStranice($event)"
+></app-paginator>

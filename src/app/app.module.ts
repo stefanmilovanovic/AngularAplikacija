@@ -4,13 +4,24 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
+import {HttpClientModule} from "@angular/common/http";
+import { VremeModule } from './vreme/vreme.module';
+import { ObavestenjaModule } from './obavestenja/obavestenja.module';
+import { PocetnaComponent } from './pocetna/pocetna.component';
+import { NovostiModule } from './novosti/novosti.module';
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PocetnaComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    VremeModule,
+    ObavestenjaModule,
+    NovostiModule
   ],
   providers: [],
   bootstrap: [AppComponent]

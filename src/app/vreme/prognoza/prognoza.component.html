@@ -1,0 +1,13 @@
+<ul class="lista">
+  <li class="dan" (click)="resetujPrognozu()">
+    <img
+      src="https://cdn2.iconfinder.com/data/icons/weather-flat-14/64/weather02-512.png"
+      class="prognoza-slika"
+    />
+  </li>
+
+  <li class="dan" *ngFor="let dan of prognoza">
+    <p class="temperatura">{{ dan.temperatura | number : "1.0-0" }} °C</p>
+    <p class="vreme">{{ dan.vreme | date : "EEE d" }}</p>
+  </li>
+</ul>

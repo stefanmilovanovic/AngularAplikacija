@@ -1,0 +1,8 @@
+<div class="ui pagination menu">
+    <a class="item" *ngFor="let page of pageOptions"
+    [ngClass]="page === currentPage ? 'active' : ''"
+    (click)="onPageClick(page)"
+    >
+      {{page}}
+    </a>
+  </div>

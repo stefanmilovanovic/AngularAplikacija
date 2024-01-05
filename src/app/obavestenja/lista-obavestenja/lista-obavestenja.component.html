@@ -1,0 +1,10 @@
+<div class="ui message" *ngFor="let poruka of poruke | async"
+[ngClass]="poruka.tip === 'uspeh'?'olive':'orange'"
+>
+    <i class="close icon" (click)="ugasiObavestenje(poruka.id)"></i>
+    <div class="header">
+      <ng-container *ngIf="poruka.tip === 'greska'">Greska!</ng-container>
+      <ng-container *ngIf="poruka.tip === 'uspeh'">Uspeh!</ng-container>
+    </div>
+    <p>{{poruka.tekst}}</p>
+  </div>
