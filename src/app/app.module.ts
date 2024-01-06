@@ -9,6 +9,7 @@ import { VremeModule } from './vreme/vreme.module';
 import { ObavestenjaModule } from './obavestenja/obavestenja.module';
 import { PocetnaComponent } from './pocetna/pocetna.component';
 import { NovostiModule } from './novosti/novosti.module';
+import { NalogModule } from './nalog/nalog.module';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { NovostiModule } from './novosti/novosti.module';
     HttpClientModule,
     VremeModule,
     ObavestenjaModule,
-    NovostiModule
+    NovostiModule,
+    NalogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,9 +1,21 @@
 <div class="meni-moj-stil">
   <div class="ui container">
     <div class="ui secondary menu">
-      <a class="active item"> Home </a>
-      <a class="item"> Messages </a>
-      <a class="item"> Friends </a>
+      <a
+        routerLink=""
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        class="item"
+      >
+        Početna
+      </a>
+      <a routerLink="prijava" routerLinkActive="active" class="item">
+        Prijava
+      </a>
+      <a routerLink="registracija" routerLinkActive="active" class="item">
+        Registracija
+      </a>
+      <a class="item"> Pošta </a>
       <div class="right menu">
         <div class="item">
           <div class="ui icon input">
@@ -11,7 +23,7 @@
             <i class="search link icon"></i>
           </div>
         </div>
-        <a class="ui item"> Logout </a>
+        <a class="ui item"> Odjavi se </a>
       </div>
     </div>
   </div>
@@ -21,5 +33,11 @@
 <app-lista-obavestenja></app-lista-obavestenja>
 
 <div class="ui container">
-  <router-outlet></router-outlet>
+  <div class="ui grid">
+    <div class="three wide column"></div>
+    <div class="ten wide column">
+      <router-outlet></router-outlet>
+    </div>
+    <div class="three wide column"></div>
+  </div>
 </div>

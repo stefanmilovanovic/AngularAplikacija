@@ -1,0 +1,38 @@
+<br/>
+<h2 class="ui header">Registracija</h2>
+<div class="ui divider"></div>
+
+<form [ngClass]="ucitavanje?'loading':''" class="ui form" [formGroup]="registracijaForma" (ngSubmit)="onSubmit()">
+
+  <app-input
+    [kontrola]="registracijaForma.controls.username"
+    naziv="Korisničko ime"
+    tipPolja="text"
+  ></app-input>
+
+  <br/>
+
+  <app-input
+    [kontrola]="registracijaForma.controls.password"
+    naziv="Šifra"
+    tipPolja="password"
+  ></app-input>
+
+  <br/>
+
+  <app-input
+    [kontrola]="registracijaForma.controls.passwordConfirmation"
+    naziv="Potvrda šifre"
+    tipPolja="password"
+  ></app-input>
+
+  <br/>
+
+  <div class="ui red basic label" *ngIf="registracijaForma.controls.passwordConfirmation.dirty && registracijaForma.hasError('passwordsDontMatch')">
+    <p>Šifre se ne poklapaju</p>
+  </div>
+
+  <hr style="opacity: 0;"/>
+
+  <button class="ui button primary" type="submit" [ngClass]="ucitavanje?'loading':''">Prijavi se</button>
+</form>

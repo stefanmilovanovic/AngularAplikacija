@@ -1,0 +1,17 @@
+<div class="field">
+  <label>{{ naziv }}</label>
+  <input [formControl]="kontrola" [type]="tipPolja" />
+  <div
+    *ngIf="kontrola.dirty && kontrola.errors"
+    class="ui pointing red basic label"
+  >
+<p *ngIf="kontrola.hasError('required')">Polje je obavezno</p>
+<p *ngIf="kontrola.hasError('minlength')">Minimum 4 karaktera</p>
+<p *ngIf="kontrola.hasError('maxlength')">Maksimum 20 karaktera</p>
+<p *ngIf="kontrola.hasError('pattern')">Loš format</p>
+<p *ngIf="kontrola.hasError('imeVecPostoji')">Korisničko ime se već koristi</p>
+<p *ngIf="kontrola.hasError('noConnection')">
+    No connection
+  </p>
+</div>
+</div>
