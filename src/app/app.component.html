@@ -9,13 +9,30 @@
       >
         Početna
       </a>
-      <a routerLink="prijava" routerLinkActive="active" class="item">
+      <a
+        routerLink="prijava"
+        routerLinkActive="active"
+        class="item"
+        *ngIf="!prijavljen"
+      >
         Prijava
       </a>
-      <a routerLink="registracija" routerLinkActive="active" class="item">
+      <a
+        routerLink="registracija"
+        routerLinkActive="active"
+        class="item"
+        *ngIf="!prijavljen"
+      >
         Registracija
       </a>
-      <a class="item"> Pošta </a>
+      <a
+        routerLink="posta"
+        routerLinkActive="active"
+        class="item"
+        *ngIf="prijavljen"
+      >
+        Pošta
+      </a>
       <div class="right menu">
         <div class="item">
           <div class="ui icon input">
@@ -23,13 +40,13 @@
             <i class="search link icon"></i>
           </div>
         </div>
-        <a class="ui item"> Odjavi se </a>
+        <a class="ui item" *ngIf="prijavljen"> Odjavi se </a>
       </div>
     </div>
   </div>
 </div>
 
-<app-prognoza></app-prognoza>
+<!-- <app-prognoza></app-prognoza> -->
 <app-lista-obavestenja></app-lista-obavestenja>
 
 <div class="ui container">

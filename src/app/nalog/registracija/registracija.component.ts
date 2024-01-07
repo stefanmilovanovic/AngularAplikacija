@@ -8,6 +8,8 @@ import {
 import { PotvrdaSifre } from '../validatori/potvrda-sifre';
 import { ProveriIme } from '../validatori/proveri-ime';
 import { NalogService } from '../nalog.service';
+import { ObavestenjaService } from 'src/app/obavestenja/obavestenja.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-registracija',
@@ -21,7 +23,9 @@ export class RegistracijaComponent {
   constructor(
     private potvrdaSifre: PotvrdaSifre,
     private proveriIme: ProveriIme,
-    private nalogService:NalogService
+    private nalogService:NalogService,
+    private obavestenjaService:ObavestenjaService,
+    private router:Router
   ) {}
 
   registracijaForma = new FormGroup(
@@ -60,10 +64,19 @@ export class RegistracijaComponent {
       return;
     }
     this.ucitavanje = true;
-    console.log(this.registracijaForma.value);
-    this.nalogService.registracija(this.registracijaForma.getRawValue()).subscribe((response)=>{
-      console.log(response);
-      this.ucitavanje = false;
+    //console.log(this.registracijaForma.value);
+    this.nalogService.registracija(this.registracijaForma.getRawValue()).subscribe({
+      next:(response)=>{
+        console.log(response);
+        this.ucitavanje = false;
+        this.obavestenjaService.dodajUspeh("Uspešna registracija novog naloga");
+        this.router.navigate(["posta"]);
+      },
+      error:(err)=>{
+        console.log(err);
+        this.ucitavanje = false;
+        this.obavestenjaService.dodajGresku("Nešto je pošlo naopako");
+      }
     });
   }
 }

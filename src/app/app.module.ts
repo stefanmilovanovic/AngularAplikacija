@@ -4,12 +4,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import { VremeModule } from './vreme/vreme.module';
 import { ObavestenjaModule } from './obavestenja/obavestenja.module';
 import { PocetnaComponent } from './pocetna/pocetna.component';
 import { NovostiModule } from './novosti/novosti.module';
 import { NalogModule } from './nalog/nalog.module';
+import { NalogHttpInterceptor } from './nalog/nalog-http-interceptor';
+import { Pocetna2Module } from './pocetna2/pocetna2.module';
 
 @NgModule({
   declarations: [
@@ -23,9 +25,14 @@ import { NalogModule } from './nalog/nalog.module';
     VremeModule,
     ObavestenjaModule,
     NovostiModule,
-    NalogModule
+    NalogModule,
+    Pocetna2Module
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: NalogHttpInterceptor,
+    multi:true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

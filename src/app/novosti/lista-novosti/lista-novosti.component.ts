@@ -6,13 +6,13 @@ import { NovostiService, Vest } from '../novosti.service';
   templateUrl: './lista-novosti.component.html',
   styleUrls: ['./lista-novosti.component.css']
 })
-export class ListaNovostiComponent {
+export class ListaNovostiComponent{
   vesti?: Vest[];
   brojStranica = 0;
   constructor(private novostiService:NovostiService){
     this.novostiService.izlazVesti.subscribe((response)=>{
       this.vesti = response;
-    })
+    });
     this.novostiService.ukupanBrojStranica.subscribe((broj)=>{
       this.brojStranica = broj;
     })

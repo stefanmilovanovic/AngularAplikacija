@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./pocetna.component.css']
 })
 export class PocetnaComponent {
-
+  
 }

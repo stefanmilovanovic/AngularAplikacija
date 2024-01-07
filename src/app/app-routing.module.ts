@@ -4,8 +4,8 @@ import { PocetnaComponent } from './pocetna/pocetna.component';
 
 const routes: Routes = [
   {
-    path:"",
-    component:PocetnaComponent
+    path:"posta",
+    loadChildren:()=>import("./posta/posta.module").then(m=>m.PostaModule)
   }
 ];
 
