@@ -57,4 +57,12 @@ export class NalogService {
       })
     );
   }
+
+  odjava(){
+    return this.http.post(this.emailAPI+"signout",{}).pipe(
+      tap(()=>{
+        this.$prijavljen.next(false);
+      })
+    )
+  }
 }

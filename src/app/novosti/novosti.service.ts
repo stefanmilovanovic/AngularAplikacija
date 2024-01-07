@@ -1,6 +1,6 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { EMPTY, Observable, Subject, catchError, map, switchMap, tap } from 'rxjs';
+import { EMPTY, Observable, Subject, catchError, map, refCount, switchMap, tap } from 'rxjs';
 import { ObavestenjaService } from '../obavestenja/obavestenja.service';
 
 interface NovostiApiOdgovor{

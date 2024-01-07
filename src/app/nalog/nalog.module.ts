@@ -6,12 +6,14 @@ import { RegistracijaComponent } from './registracija/registracija.component';
 import { PrijavaComponent } from './prijava/prijava.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
+import { OdjavaComponent } from './odjava/odjava.component';
 
 
 @NgModule({
   declarations: [
     RegistracijaComponent,
-    PrijavaComponent
+    PrijavaComponent,
+    OdjavaComponent
   ],
   imports: [
     CommonModule,
