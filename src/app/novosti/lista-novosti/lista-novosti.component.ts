@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { NovostiService, Vest } from '../novosti.service';
 
 @Component({
@@ -6,11 +6,12 @@ import { NovostiService, Vest } from '../novosti.service';
   templateUrl: './lista-novosti.component.html',
   styleUrls: ['./lista-novosti.component.css']
 })
-export class ListaNovostiComponent{
+export class ListaNovostiComponent implements OnDestroy{
   vesti?: Vest[];
   brojStranica = 0;
+  vestiObservable:any;
   constructor(private novostiService:NovostiService){
-    this.novostiService.izlazVesti.subscribe((response)=>{
+    this.vestiObservable = this.novostiService.izlazVesti.subscribe((response)=>{
       this.vesti = response;
     });
     this.novostiService.ukupanBrojStranica.subscribe((broj)=>{
@@ -18,6 +19,9 @@ export class ListaNovostiComponent{
     })
 
     this.novostiService.brojStranice.next(1);
+  }
+  ngOnDestroy(): void {
+    this.vestiObservable.unsubscribe();
   }
 
   promenaStranice(broj: number) {
