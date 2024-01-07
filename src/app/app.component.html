@@ -40,7 +40,9 @@
             <i class="search link icon"></i>
           </div>
         </div>
-        <a class="ui item" *ngIf="prijavljen" routerLink="odjava"> Odjavi se </a>
+        <a class="ui item" *ngIf="prijavljen" routerLink="odjava">
+          Odjavi se
+        </a>
       </div>
     </div>
   </div>
@@ -50,11 +52,5 @@
 <app-lista-obavestenja></app-lista-obavestenja>
 
 <div class="ui container">
-  <div class="ui grid">
-    <div class="three wide column"></div>
-    <div class="ten wide column">
-      <router-outlet></router-outlet>
-    </div>
-    <div class="three wide column"></div>
-  </div>
+  <router-outlet></router-outlet>
 </div>

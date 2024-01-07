@@ -1,38 +1,61 @@
-<br/>
-<h2 class="ui header">Registracija</h2>
-<div class="ui divider"></div>
+<br />
 
-<form [ngClass]="ucitavanje?'loading':''" class="ui form" [formGroup]="registracijaForma" (ngSubmit)="onSubmit()">
+<div class="ui grid">
+  <div class="three wide column"></div>
+  <div class="ten wide column">
+    <h2 class="ui header">Registracija</h2>
+    <div class="ui divider"></div>
 
-  <app-input
-    [kontrola]="registracijaForma.controls.username"
-    naziv="Korisničko ime"
-    tipPolja="text"
-  ></app-input>
+    <form
+      [ngClass]="ucitavanje ? 'loading' : ''"
+      class="ui form"
+      [formGroup]="registracijaForma"
+      (ngSubmit)="onSubmit()"
+    >
+      <app-input
+        [kontrola]="registracijaForma.controls.username"
+        naziv="Korisničko ime"
+        tipPolja="text"
+      ></app-input>
 
-  <br/>
+      <br />
 
-  <app-input
-    [kontrola]="registracijaForma.controls.password"
-    naziv="Šifra"
-    tipPolja="password"
-  ></app-input>
+      <app-input
+        [kontrola]="registracijaForma.controls.password"
+        naziv="Šifra"
+        tipPolja="password"
+      ></app-input>
 
-  <br/>
+      <br />
 
-  <app-input
-    [kontrola]="registracijaForma.controls.passwordConfirmation"
-    naziv="Potvrda šifre"
-    tipPolja="password"
-  ></app-input>
+      <app-input
+        [kontrola]="registracijaForma.controls.passwordConfirmation"
+        naziv="Potvrda šifre"
+        tipPolja="password"
+      ></app-input>
 
-  <br/>
+      <br />
 
-  <div class="ui red basic label" *ngIf="registracijaForma.controls.passwordConfirmation.dirty && registracijaForma.hasError('passwordsDontMatch')">
-    <p>Šifre se ne poklapaju</p>
+      <div
+        class="ui red basic label"
+        *ngIf="
+          registracijaForma.controls.passwordConfirmation.dirty &&
+          registracijaForma.hasError('passwordsDontMatch')
+        "
+      >
+        <p>Šifre se ne poklapaju</p>
+      </div>
+
+      <hr style="opacity: 0" />
+
+      <button
+        class="ui button primary"
+        type="submit"
+        [ngClass]="ucitavanje ? 'loading' : ''"
+      >
+        Registruj se
+      </button>
+    </form>
   </div>
-
-  <hr style="opacity: 0;"/>
-
-  <button class="ui button primary" type="submit" [ngClass]="ucitavanje?'loading':''">Registruj se</button>
-</form>
+  <div class="three wide column"></div>
+</div>

@@ -13,13 +13,17 @@ export class NalogHttpInterceptor implements HttpInterceptor {
     req: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    if (req.url === 'https://api.angular-email.com/auth/signedin') {
-      const noviRequest = req.clone({
-        withCredentials: true,
-      });
-
-      return next.handle(noviRequest);
+    console.log(req.url);
+    if (
+      req.url === 'https://newsapi.org/v2/top-headlines' ||
+      req.url === 'https://api.openweathermap.org/data/2.5/forecast'
+    ) {
+      return next.handle(req);
     }
-    return next.handle(req);
+    const noviRequest = req.clone({
+      withCredentials: true,
+    });
+
+    return next.handle(noviRequest);
   }
 }

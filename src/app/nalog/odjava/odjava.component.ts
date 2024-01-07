@@ -11,7 +11,8 @@ import { Router } from '@angular/router';
 export class OdjavaComponent implements OnInit{
   constructor(private nalogService:NalogService,private obavestenjaService:ObavestenjaService, private router:Router){}
   ngOnInit(): void {
-    this.nalogService.odjava().subscribe(()=>{
+    this.nalogService.odjava().subscribe((value)=>{
+      console.log(value)
       this.obavestenjaService.dodajUspeh("Odjava sa naloga uspešna");
       this.router.navigate(["prijava"]);
     })

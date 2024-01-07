@@ -1,34 +1,49 @@
 <br />
-<h2 class="ui header">Registracija</h2>
-<div class="ui divider"></div>
 
-<form class="ui form" [formGroup]="prijavaForma" (ngSubmit)="onSubmit()" [ngClass]="ucitavanje?'loading':''">
-  <app-input
-    [kontrola]="prijavaForma.controls.username"
-    naziv="Korisničko ime"
-    tipPolja="text"
-  ></app-input>
+<div class="ui grid">
+  <div class="three wide column"></div>
+  <div class="ten wide column">
+    <h2 class="ui header">Prijava</h2>
+    <div class="ui divider"></div>
 
-  <br />
+    <form
+      class="ui form"
+      [formGroup]="prijavaForma"
+      (ngSubmit)="onSubmit()"
+      [ngClass]="ucitavanje ? 'loading' : ''"
+    >
+      <app-input
+        [kontrola]="prijavaForma.controls.username"
+        naziv="Korisničko ime"
+        tipPolja="text"
+      ></app-input>
 
-  <app-input
-    [kontrola]="prijavaForma.controls.password"
-    naziv="Šifra"
-    tipPolja="password"
-  ></app-input>
+      <br />
 
-  <br/>
-  <div class="ui red basic label" *ngIf="prijavaForma.hasError('netacniPodaci')">
-    <p>Uneti su netačni podaci</p>
+      <app-input
+        [kontrola]="prijavaForma.controls.password"
+        naziv="Šifra"
+        tipPolja="password"
+      ></app-input>
+
+      <br />
+      <div
+        class="ui red basic label"
+        *ngIf="prijavaForma.hasError('netacniPodaci')"
+      >
+        <p>Uneti su netačni podaci</p>
+      </div>
+
+      <hr style="opacity: 0" />
+
+      <button
+        class="ui button primary"
+        type="submit"
+        [ngClass]="ucitavanje ? 'loading' : ''"
+      >
+        Prijavi se
+      </button>
+    </form>
   </div>
-
-  <hr style="opacity: 0" />
-
-  <button
-    class="ui button primary"
-    type="submit"
-    [ngClass]="ucitavanje?'loading':''"
-  >
-    Prijavi se
-  </button>
-</form>
+  <div class="three wide column"></div>
+</div>

@@ -15,7 +15,7 @@ export class AppComponent implements OnInit{
     this.nalogService.$prijavljen.subscribe((response)=>{
       this.prijavljen = response;
     })
-    this.nalogService.proveraPrijavljen().subscribe(()=>{});
+    this.nalogService.proveraPrijavljen().subscribe((value)=>{console.log(value)});
   }
 
   title = 'app';
