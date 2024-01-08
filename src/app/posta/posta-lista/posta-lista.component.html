@@ -1,0 +1,14 @@
+<div class="ui celled list">
+    <div *ngFor="let poruka of posta" class="item my-hover">
+        <a [routerLink]="poruka.id" routerLinkActive="active">
+            <div class="content">
+                <div class="header trim">
+                    {{poruka.subject}}
+                </div>
+                <p class="trim">
+                    {{poruka.from}}
+                </p>
+            </div>
+        </a>
+    </div>
+</div>

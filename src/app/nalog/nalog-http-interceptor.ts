@@ -13,7 +13,7 @@ export class NalogHttpInterceptor implements HttpInterceptor {
     req: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    console.log(req.url);
+    //console.log(req.url);
     if (
       req.url === 'https://newsapi.org/v2/top-headlines' ||
       req.url === 'https://api.openweathermap.org/data/2.5/forecast'
