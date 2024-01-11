@@ -1,0 +1,5 @@
+<button (click)="ShowModal()" class="ui button inverted violet fluid">NOVA PORUKA</button>
+<app-modal *ngIf="showModal" (close)="ShowModal()">
+    <h3 modalTitle>Nova Poruka</h3>
+
+</app-modal>

@@ -48,7 +48,14 @@
   </div>
 </div>
 
-<!-- <app-prognoza></app-prognoza> -->
+<div class="prognoza" [ngClass]="prognozaUpaljena?'upaljeno':'ugaseno'" (click)="prognozaStanje()">
+  <img
+    src="https://cdn2.iconfinder.com/data/icons/weather-flat-14/64/weather02-512.png"
+    class="prognoza-slika"
+  />
+</div>
+
+<app-prognoza *ngIf="prognozaUpaljena"></app-prognoza>
 <app-lista-obavestenja></app-lista-obavestenja>
 
 <div class="ui container">

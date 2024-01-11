@@ -1,0 +1,24 @@
+<div (click)="CloseModal()" class="ui dimmer visible active">
+    <div (click)="$event.stopPropagation()" class="ui modal visible active">
+      <!-- Zaustavljamo event bubling-->
+      <!-- Kada imamo neki event u div-i iznad, recimo klik, pritiskom na elemente unutar div-a taj event klika ce se okuniti za svaki element iznad-->
+      <!-- Tako ce doci i do naseg diva iznad na koji recimo ne zelimo da se okine, kao na primer ovde sa pozadinom-->
+
+      <!-- <i (click)="CloseModal()" class="close icon"></i> -->
+  
+      <div class="header">
+        <ng-content select="[modalTitle]"></ng-content>
+      </div>
+  
+      <div class="content">
+        <ng-content></ng-content>
+      </div>
+  
+      <!-- <div class="actions">
+        <ng-content select="[modalFooter]"></ng-content>
+      </div> -->
+  
+      <img style="text-align: center;width: 100%;" src="../../../assets/img/loading.gif">
+  
+    </div>
+  </div>

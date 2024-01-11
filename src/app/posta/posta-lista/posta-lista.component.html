@@ -1,3 +1,11 @@
+<div class="ui placeholder segment" *ngIf="posta.length < 1">
+    <div class="ui icon header">
+      <i class="pdf search icon"></i>
+      Nemate poruka u inboksu
+    </div>
+    <p style="text-align: center;">Pošaljite e-mail na vaš nalog i poruke će biti prikazane ovde</p>
+    <p style="text-align: center;"><b>username@angular-email.com</b></p>
+  </div>
 <div class="ui celled list">
     <div *ngFor="let poruka of posta" class="item my-hover">
         <a [routerLink]="poruka.id" routerLinkActive="active">

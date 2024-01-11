@@ -7,6 +7,10 @@ import { PostaListaComponent } from './posta-lista/posta-lista.component';
 import { PostaPrikazComponent } from './posta-prikaz/posta-prikaz.component';
 import { PostaPrikazPocetnaComponent } from './posta-prikaz-pocetna/posta-prikaz-pocetna.component';
 import { PorukaNePostojiComponent } from './poruka-ne-postoji/poruka-ne-postoji.component';
+import { PostaFormaComponent } from './posta-forma/posta-forma.component';
+import { PostaNovaPorukaComponent } from './posta-nova-poruka/posta-nova-poruka.component';
+import { SharedModule } from '../shared/shared.module';
+import { PostaOdgovorComponent } from './posta-odgovor/posta-odgovor.component';
 
 
 @NgModule({
@@ -15,11 +19,15 @@ import { PorukaNePostojiComponent } from './poruka-ne-postoji/poruka-ne-postoji.
     PostaListaComponent,
     PostaPrikazComponent,
     PostaPrikazPocetnaComponent,
-    PorukaNePostojiComponent
+    PorukaNePostojiComponent,
+    PostaFormaComponent,
+    PostaNovaPorukaComponent,
+    PostaOdgovorComponent
   ],
   imports: [
     CommonModule,
-    PostaRoutingModule
+    PostaRoutingModule,
+    SharedModule
   ]
 })
 export class PostaModule { }

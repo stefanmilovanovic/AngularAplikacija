@@ -9,6 +9,7 @@ import { NalogService } from './nalog/nalog.service';
 export class AppComponent implements OnInit{
 
   prijavljen = false;
+  prognozaUpaljena = false;
   constructor(private nalogService:NalogService){}
 
   ngOnInit(): void {
@@ -18,5 +19,8 @@ export class AppComponent implements OnInit{
     this.nalogService.proveraPrijavljen().subscribe((value)=>{console.log(value)});
   }
 
-  title = 'app';
+  prognozaStanje(){
+    this.prognozaUpaljena = !this.prognozaUpaljena;
+  }
+  
 }
