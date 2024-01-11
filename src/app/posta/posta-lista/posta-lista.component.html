@@ -1,3 +1,25 @@
+<!-- TEST SA UCITAVANJEM -->
+<ng-container *ngIf="ucitavanje">
+    <div class="ui placeholder">
+        <div class="image header">
+          <div class="line"></div>
+          <div class="line"></div>
+        </div>
+      </div>
+      <div class="ui placeholder">
+        <div class="image header">
+          <div class="line"></div>
+          <div class="line"></div>
+        </div>
+      </div>
+      <div class="ui placeholder">
+        <div class="image header">
+          <div class="line"></div>
+          <div class="line"></div>
+        </div>
+      </div>
+</ng-container>
+<ng-container *ngIf="!ucitavanje">
 <div class="ui placeholder segment" *ngIf="posta.length < 1">
     <div class="ui icon header">
       <i class="pdf search icon"></i>
@@ -20,3 +42,4 @@
         </a>
     </div>
 </div>
+</ng-container>
