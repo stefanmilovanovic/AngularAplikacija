@@ -10,4 +10,5 @@ export class InputComponent {
 @Input() kontrola:FormControl<any> = new FormControl();
 @Input() naziv = "";
 @Input() tipPolja = "";
+@Input() textAreaTip = false;
 }

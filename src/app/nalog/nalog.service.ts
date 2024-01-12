@@ -25,6 +25,7 @@ export class NalogService {
 
   $prijavljen = new BehaviorSubject(false);
   emailAPI = "https://api.angular-email.com/auth/";
+  korisnickoIme = "";
 
   constructor(private http:HttpClient) { }
 
@@ -36,24 +37,27 @@ export class NalogService {
 
   registracija(podaci:PodaciRegistracija){
     return this.http.post(this.emailAPI+"signup",podaci).pipe(
-      tap(()=>{
+      tap((response:any)=>{
         this.$prijavljen.next(true);
+        this.korisnickoIme = response.username;
       })
     );
   }
 
   prijava(podaci:PodaciPrijava){
     return this.http.post(this.emailAPI+"signin",podaci).pipe(
-      tap(()=>{
+      tap((response:any)=>{
         this.$prijavljen.next(true);
+        this.korisnickoIme = response.username;
       })
     );
   }
 
   proveraPrijavljen(){
     return this.http.get<OdgovorNaProveraPrijavljen>(this.emailAPI+"signedin").pipe(
-      tap(({authenticated})=>{
+      tap(({authenticated,username})=>{
         this.$prijavljen.next(authenticated);
+        this.korisnickoIme = username;
       })
     );
   }

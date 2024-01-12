@@ -1,6 +1,7 @@
 <div class="field">
   <label>{{ naziv }}</label>
-  <input [formControl]="kontrola" [type]="tipPolja" />
+  <input *ngIf="textAreaTip === false" [formControl]="kontrola" [type]="tipPolja" />
+  <textarea *ngIf="textAreaTip === true" [formControl]="kontrola"></textarea>
   <div
     *ngIf="kontrola.dirty && kontrola.errors"
     class="ui pointing red basic label"
@@ -10,6 +11,7 @@
 <p *ngIf="kontrola.hasError('maxlength')">Maksimum 20 karaktera</p>
 <p *ngIf="kontrola.hasError('pattern')">Loš format</p>
 <p *ngIf="kontrola.hasError('imeVecPostoji')">Korisničko ime se već koristi</p>
+<p *ngIf="kontrola.hasError('email')">Uneti validan format e-mejla</p>
 <p *ngIf="kontrola.hasError('noConnection')">
     Problem sa konekcijom
   </p>

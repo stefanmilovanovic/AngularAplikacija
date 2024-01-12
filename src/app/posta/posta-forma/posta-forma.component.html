@@ -1,1 +1,44 @@
-<p>posta-forma works!</p>
+<form 
+class="ui form" 
+[formGroup]="postaForma" 
+(ngSubmit)="onSubmit()"
+[ngClass]="slanje?'loading':''"
+>
+  <app-input
+    [kontrola]="postaForma.controls.from"
+    naziv="Od"
+    tipPolja="email"
+  ></app-input>
+
+  <br />
+
+  <app-input
+    [kontrola]="postaForma.controls.to"
+    naziv="Za"
+    tipPolja="email"
+  ></app-input>
+
+  <br />
+
+  <app-input
+    [kontrola]="postaForma.controls.subject"
+    naziv="Naslov"
+    tipPolja="text"
+  ></app-input>
+
+  <br />
+
+  <app-input
+    [kontrola]="postaForma.controls.content"
+    naziv="Sadržaj"
+    tipPolja="text"
+    [textAreaTip]="true"
+  ></app-input>
+
+  <hr style="opacity: 0" />
+  <div>
+    <button [ngClass]="slanje?'loading':''"  class="ui submit button primary">
+      Pošalji
+    </button>
+  </div>
+</form>

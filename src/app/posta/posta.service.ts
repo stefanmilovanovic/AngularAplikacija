@@ -22,4 +22,8 @@ export class PostaService {
   vratiPorukuPoId(porukaId:number){
     return this.http.get<Poruka>(this.emailAPI+"emails/"+porukaId);
   }
+
+  posaljiPoruku(email:any){
+    return this.http.post(this.emailAPI+"emails",email);
+  }
 }

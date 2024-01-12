@@ -1,5 +1,5 @@
 <button (click)="ShowModal()" class="ui button inverted secondary fluid">ODGOVORI</button>
 <app-modal *ngIf="showModal" (close)="ShowModal()">
     <h3 modalTitle>Odgovor na poruku</h3>
-
+    <app-posta-forma [porukaPodaci]="poruka" (porukaSubmit)="onSubmit($event)"></app-posta-forma>
 </app-modal>

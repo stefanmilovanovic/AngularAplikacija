@@ -11,6 +11,7 @@ import { PostaFormaComponent } from './posta-forma/posta-forma.component';
 import { PostaNovaPorukaComponent } from './posta-nova-poruka/posta-nova-poruka.component';
 import { SharedModule } from '../shared/shared.module';
 import { PostaOdgovorComponent } from './posta-odgovor/posta-odgovor.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { PostaOdgovorComponent } from './posta-odgovor/posta-odgovor.component';
   imports: [
     CommonModule,
     PostaRoutingModule,
-    SharedModule
+    SharedModule,
+    ReactiveFormsModule
   ]
 })
 export class PostaModule { }
